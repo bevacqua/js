@@ -275,15 +275,6 @@ function getName (mobile) {
 
 In cases that may prove confusing just use `if` and `else` statements instead.
 
-## Everyday Tricks
-
-Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
-
-function a (value) {
-  var defaultValue = 33;
-  var used = value || defaultValue;
-}
-
 ## Functions
 
 When declaring a function, always use the [function expression form][7] instead of [function declarations][8].
@@ -670,6 +661,61 @@ Where possible use the native browser implementation and include [a polyfill tha
 
 If you can't patch a piece of functionality with a polyfill, then [wrap all uses of the patching code][23] in a globally available method that is accessible from everywhere in the application.
 
+## Everyday Tricks
+
+Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
+
+```js
+function a (value) {
+  var defaultValue = 33;
+  var used = value || defaultValue;
+}
+```
+
+Use `.bind` to [partially-apply][10] functions.
+
+```js
+function sum (a, b) {
+  return a + b;
+}
+
+var addSeven = sum.bind(null, 7);
+
+addSeven(6);
+// <- 13
+```
+
+Use `Array.prototype.slice.call` to cast array-like objects to true arrays.
+
+```js
+var args = Array.prototype.slice.call(arguments);
+```
+
+Use [event emitters][28] on all the things!
+
+```js
+var emitter = contra.emitter();
+
+body.addEventListener('click', function () {
+  emitter.emit('click', e.target);
+});
+
+emitter.on('click', function (elem) {
+  console.log(elem);
+});
+
+// simulate click
+emitter.emit('click', document.body);
+```
+
+Use `Function.prototype` as a _"no-op"_.
+
+```js
+function (cb) {
+  setTimeout(cb || Function.prototype, 2000);
+}
+```
+
 ## License
 
 MIT
@@ -705,3 +751,4 @@ MIT
 [25]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
 [26]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
 [27]: http://james.padolsey.com/javascript/truthy-falsey/
+[28]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
