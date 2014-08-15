@@ -275,6 +275,15 @@ function getName (mobile) {
 
 In cases that may prove confusing just use `if` and `else` statements instead.
 
+## Everyday Tricks
+
+Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
+
+function a (value) {
+  var defaultValue = 33;
+  var used = value || defaultValue;
+}
+
 ## Functions
 
 When declaring a function, always use the [function expression form][7] instead of [function declarations][8].
@@ -695,3 +704,4 @@ MIT
 [24]: https://github.com/visionmedia/jade
 [25]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
 [26]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+[27]: http://james.padolsey.com/javascript/truthy-falsey/
