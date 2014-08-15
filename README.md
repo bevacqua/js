@@ -447,6 +447,48 @@ function once (fn) {
 }
 ```
 
+Avoid keeping indentation levels from raising more than necessary by using guard clauses instead of flowing `if` statements.
+
+##### Bad
+
+```js
+if (car) {
+  if (black) {
+    if (turbine) {
+      return 'batman!';
+    }
+  }
+}
+```
+
+```js
+if (condition) {
+  // 10+ lines of code
+}
+```
+
+##### Good
+
+```js
+if (!car) {
+  return;
+}
+if (!black) {
+  return;
+}
+if (!turbine) {
+  return;
+}
+return 'batman!';
+```
+
+```js
+if (!condition) {
+  return;
+}
+// 10+ lines of code
+```
+
 ## Prototypes
 
 Hacking native prototypes should be avoided at all costs, use a method instead. If you must extend the functionality in a native type, try using something like [poser][16] instead.
