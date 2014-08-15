@@ -60,9 +60,9 @@ Where possible, improve readability by keeping lines below the 80-character mark
 
 ## Semicolons`;`
 
-Automatic semicolon insertion is not a feature. [Don't rely on it][17]. It's [super complicated][18] and there's no practical reason to burden all of the developers in a team for not possessing **the frivolous knowledge of how ASI works**.
+Automatic Semicolon Insertion _(ASI)_ is not a feature. [Don't rely on it][17]. It's [super complicated][18] and there's no practical reason to burden all of the developers in a team for not possessing **the frivolous knowledge of how ASI works**. Avoid headaches, avoid ASI.
 
-Always add semicolons where needed.
+> **Always add semicolons where needed**
 
 ## Style Checking
 
@@ -121,7 +121,7 @@ var message = 'oh hai ' + name + '!';
 
 Usually you'll be a happier JavaScript developer if you hack together a parameter-replacing method like [`util.format` in Node][15]. That way it'll be far easier to format your strings, and the code looks a lot cleaner too.
 
-##### Good
+##### Better
 
 ```js
 var message = util.format('oh hai %s!', name);
@@ -586,6 +586,10 @@ if (numeric.test(text)) {
 ```
 
 Commenting out entire blocks of code _should be avoided entirely_, that's why you have version control systems in place!
+
+## Variable Naming
+
+Variables must have meaningful names so that you don't have to resort to commenting what a piece of functionality does. Instead, try to be expressive while succint, and use meaningful variable names.
 
 ## Polyfills
 
