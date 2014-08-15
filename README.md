@@ -447,48 +447,6 @@ function once (fn) {
 }
 ```
 
-Avoid keeping indentation levels from raising more than necessary by using guard clauses instead of flowing `if` statements.
-
-##### Bad
-
-```js
-if (car) {
-  if (black) {
-    if (turbine) {
-      return 'batman!';
-    }
-  }
-}
-```
-
-```js
-if (condition) {
-  // 10+ lines of code
-}
-```
-
-##### Good
-
-```js
-if (!car) {
-  return;
-}
-if (!black) {
-  return;
-}
-if (!turbine) {
-  return;
-}
-return 'batman!';
-```
-
-```js
-if (!condition) {
-  return;
-}
-// 10+ lines of code
-```
-
 ## Prototypes
 
 Hacking native prototypes should be avoided at all costs, use a method instead. If you must extend the functionality in a native type, try using something like [poser][16] instead.
@@ -601,6 +559,8 @@ Preferrably bake `console` statements into a service that can easily be disabled
 
 Comments **aren't meant to explain what** the code does. Good **code is supposed to be self-explanatory**. If you're thinking of writing a comment to explain what a piece of code does, chances are you need to change the code itself. The exception to that rule is explaining what a regular expression does. Good comments are supposed to **explain why** code does something that may not seem to have a clear-cut purpose.
 
+##### Bad
+
 ```js
 // create the centered container
 var p = $('<p/>');
@@ -632,6 +592,26 @@ Commenting out entire blocks of code _should be avoided entirely_, that's why yo
 ## Variable Naming
 
 Variables must have meaningful names so that you don't have to resort to commenting what a piece of functionality does. Instead, try to be expressive while succint, and use meaningful variable names.
+
+##### Bad
+
+```js
+function a (x, y, z) {
+  return z * y / x;
+}
+a(4, 2, 6);
+// <- 3
+```
+
+##### Good
+
+```js
+function ruleOfThree (had, got, have) {
+  return have * got / had;
+}
+ruleOfThree(4, 2, 6);
+// <- 3
+```
 
 ## Polyfills
 
