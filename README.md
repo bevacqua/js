@@ -303,7 +303,7 @@ That being said, there's nothing wrong with function declarations that are just 
 var plusThree = sum.bind(null, 3);
 ```
 
-Keep in mind that [function expressions will be hoisted][9] to the top of the scope so it doesn't matter the order they are declared in. That being said, you should always keep function declarations at the top level in a scope, and avoid placing them inside conditional statements.
+Keep in mind that [function expressions will be hoisted][9] to the top of the scope so it doesn't matter the order they are declared in. That being said, you should always keep functions at the top level in a scope, and avoid placing them inside conditional statements.
 
 ##### Bad
 
