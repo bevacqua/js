@@ -342,24 +342,42 @@ if (Math.random() > 0.5) {
 
 If you need a _"no-op"_ method you can use either `Function.prototype`, or `function noop () {}`. Ideally a single reference to `noop` is used throughout the application.
 
-Whenever you have to manipulate the `arguments` object, or other array-likes, cast them to an array.
+Whenever you have to manipulate an array-like object, cast it to an array.
 
 ##### Bad
 
 ```js
-var i;
+var divs = document.querySelectorAll('div');
 
-for (i = 0; i < arguments.length; i++) {
-  console.log(arguments(i));
+for (i = 0; i < divs.length; i++) {
+  console.log(divs[i].innerHTML);
 }
 ```
 
 ##### Good
 
 ```js
-[].slice.call(arguments).forEach(function (value) {
-  console.log(value);
+var divs = document.querySelectorAll('div');
+
+[].slice.call(divs).forEach(function (div) {
+  console.log(div.innerHTML);
 });
+```
+
+However, be aware that there is a [substantial peformance hit][16] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
+
+#### Bad
+```js
+var args = [].slice.call(arguments);
+```
+
+#### Good
+```js
+var i;
+var args = new Array(arguments.length);
+for (i = 0; i < args.length; i++) {
+    args[i] = arguments[i];
+}
 ```
 
 Don't declare functions inside of loops.
@@ -750,16 +768,17 @@ MIT
 [13]: https://github.com/jshint/jshint/
 [14]: https://github.com/eslint/eslint
 [15]: http://nodejs.org/api/util.html#util_util_format_format
-[16]: https://github.com/bevacqua/poser
-[17]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
-[18]: http://www.2ality.com/2011/05/semicolon-insertion.html
-[19]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
-[20]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
-[21]: http://www.regexper.com/#%2F%5Cd%2B%2F
-[22]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
-[23]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
-[24]: https://github.com/visionmedia/jade
-[25]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
-[26]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
-[27]: http://james.padolsey.com/javascript/truthy-falsey/
-[28]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
+[16]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
+[17]: https://github.com/bevacqua/poser
+[18]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
+[19]: http://www.2ality.com/2011/05/semicolon-insertion.html
+[20]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
+[21]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
+[22]: http://www.regexper.com/#%2F%5Cd%2B%2F
+[23]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
+[24]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
+[25]: https://github.com/visionmedia/jade
+[26]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
+[27]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+[28]: http://james.padolsey.com/javascript/truthy-falsey/
+[29]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
