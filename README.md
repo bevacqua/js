@@ -277,7 +277,7 @@ In cases that may prove confusing just use `if` and `else` statements instead.
 
 ## Functions
 
-When declaring a function, always use the [function expression form][7] instead of [function declarations][8].
+When declaring a function, always use the [function declaration form][8] instead of [function expressions][7].
 
 ##### Bad
 
@@ -295,7 +295,7 @@ function sum (x, y) {
 }
 ```
 
-That being said, there's nothing wrong with function declarations that are just [currying another function][10].
+That being said, there's nothing wrong with function expressions that are just [currying another function][10].
 
 ##### Good
 
@@ -303,7 +303,7 @@ That being said, there's nothing wrong with function declarations that are just 
 var plusThree = sum.bind(null, 3);
 ```
 
-Keep in mind that [function expressions will be hoisted][9] to the top of the scope so it doesn't matter the order they are declared in. That being said, you should always keep functions at the top level in a scope, and avoid placing them inside conditional statements.
+Keep in mind that [function declarations will be hoisted][9] to the top of the scope so it doesn't matter the order they are declared in. That being said, you should always keep functions at the top level in a scope, and avoid placing them inside conditional statements.
 
 ##### Bad
 
@@ -419,7 +419,7 @@ Or even better, just use `.forEach` which doesn't have the same caveats as decla
 });
 ```
 
-Whenever a method is non-trivial, make the effort to **use a named function expression rather than an anonymous function**. This will make it easier to pinpoint the root cause of an exception when analyzing stack traces.
+Whenever a method is non-trivial, make the effort to **use a named function declaration rather than an anonymous function**. This will make it easier to pinpoint the root cause of an exception when analyzing stack traces.
 
 ##### Bad
 
