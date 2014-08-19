@@ -397,6 +397,17 @@ var values = [1, 2, 3];
 var i;
 
 for (i = 0; i < values.length; i++) {
+  setTimeout(function (i) {
+    console.log(values[i]);
+  }, 1000 * i, i);
+}
+```
+
+```js
+var values = [1, 2, 3];
+var i;
+
+for (i = 0; i < values.length; i++) {
   wait(i);
 }
 
@@ -708,11 +719,11 @@ emitter.on('click', function (elem) {
 emitter.emit('click', document.body);
 ```
 
-Use `Function.prototype` as a _"no-op"_.
+Use `Function()` as a _"no-op"_.
 
 ```js
 function (cb) {
-  setTimeout(cb || Function.prototype, 2000);
+  setTimeout(cb || Function(), 2000);
 }
 ```
 
