@@ -151,7 +151,7 @@ var html = [
 ].join('');
 ```
 
-With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][25] prefer to do.
+With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][24] prefer to do.
 
 ## Variable Declaration
 
@@ -227,7 +227,7 @@ if (err) throw err;
 if (err) { throw err; }
 ```
 
-Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][27] into the same value type.
+Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][26] into the same value type.
 
 ##### Bad
 
@@ -255,7 +255,7 @@ isEmptyString(0);
 
 Ternary operators are fine for clear-cut conditionals, but unacceptable for confusing choices. As a rule, if you can't eye-parse it as fast as your brain can interpret the text that declares the ternary operator, chances are it's probably too complicated for its own good.
 
-jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][26].
+jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][25].
 
 ##### Bad
 
@@ -364,7 +364,7 @@ var divs = document.querySelectorAll('div');
 });
 ```
 
-However, be aware that there is a [substantial peformance hit][16] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
+However, be aware that there is a [substantial peformance hit][16-1] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
 
 #### Bad
 ```js
@@ -692,7 +692,7 @@ If you can't patch a piece of functionality with a polyfill, then [wrap all uses
 
 ## Everyday Tricks
 
-Use `||` to define a default value. If the left-hand value is [falsy][28] then the right-hand value will be used.
+Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
 
 ```js
 function a (value) {
@@ -720,7 +720,7 @@ Use `Array.prototype.slice.call` to cast array-like objects to true arrays.
 var args = Array.prototype.slice.call(arguments);
 ```
 
-Use [event emitters][29] on all the things!
+Use [event emitters][28] on all the things!
 
 ```js
 var emitter = contra.emitter();
@@ -768,17 +768,17 @@ MIT
 [13]: https://github.com/jshint/jshint/
 [14]: https://github.com/eslint/eslint
 [15]: http://nodejs.org/api/util.html#util_util_format_format
-[16]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-[17]: https://github.com/bevacqua/poser
-[18]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
-[19]: http://www.2ality.com/2011/05/semicolon-insertion.html
-[20]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
-[21]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
-[22]: http://www.regexper.com/#%2F%5Cd%2B%2F
-[23]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
-[24]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
-[25]: https://github.com/visionmedia/jade
-[26]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
-[27]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
-[28]: http://james.padolsey.com/javascript/truthy-falsey/
-[29]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
+[16]: https://github.com/bevacqua/poser
+[16-1]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
+[17]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
+[18]: http://www.2ality.com/2011/05/semicolon-insertion.html
+[19]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
+[20]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
+[21]: http://www.regexper.com/#%2F%5Cd%2B%2F
+[22]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
+[23]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
+[24]: https://github.com/visionmedia/jade
+[25]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
+[26]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+[27]: http://james.padolsey.com/javascript/truthy-falsey/
+[28]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
