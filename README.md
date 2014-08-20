@@ -255,7 +255,7 @@ isEmptyString(0);
 
 Ternary operators are fine for clear-cut conditionals, but unacceptable for confusing choices. As a rule, if you can't eye-parse it as fast as your brain can interpret the text that declares the ternary operator, chances are it's probably too complicated for its own good.
 
-jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][25].
+jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][26].
 
 ##### Bad
 
