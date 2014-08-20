@@ -151,7 +151,7 @@ var html = [
 ].join('');
 ```
 
-With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][24] prefer to do.
+With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][25] prefer to do.
 
 ## Variable Declaration
 
@@ -227,7 +227,7 @@ if (err) throw err;
 if (err) { throw err; }
 ```
 
-Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][26] into the same value type.
+Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][27] into the same value type.
 
 ##### Bad
 
@@ -255,7 +255,7 @@ isEmptyString(0);
 
 Ternary operators are fine for clear-cut conditionals, but unacceptable for confusing choices. As a rule, if you can't eye-parse it as fast as your brain can interpret the text that declares the ternary operator, chances are it's probably too complicated for its own good.
 
-jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][25].
+jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][26].
 
 ##### Bad
 
@@ -692,7 +692,7 @@ If you can't patch a piece of functionality with a polyfill, then [wrap all uses
 
 ## Everyday Tricks
 
-Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
+Use `||` to define a default value. If the left-hand value is [falsy][28] then the right-hand value will be used.
 
 ```js
 function a (value) {
@@ -720,7 +720,7 @@ Use `Array.prototype.slice.call` to cast array-like objects to true arrays.
 var args = Array.prototype.slice.call(arguments);
 ```
 
-Use [event emitters][28] on all the things!
+Use [event emitters][29] on all the things!
 
 ```js
 var emitter = contra.emitter();
