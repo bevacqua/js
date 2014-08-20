@@ -12,11 +12,11 @@ Module systems also provide us with dependency injection patterns, which are cru
 
 ## Strict Mode
 
-**Always** put [`'use strict';`][6] at the top of your modules. Strict mode allows you to catch non-sensical behavior, discourages poor practices, and _is faster_ because it allows compilers to make certain assumptions about your code.
+**Always** put [`'use strict';`][4] at the top of your modules. Strict mode allows you to catch non-sensical behavior, discourages poor practices, and _is faster_ because it allows compilers to make certain assumptions about your code.
 
 ## Spacing
 
-Spacing must be consistent across every file in the application. To this end, using something like [`.editorconfig`][4] configuration files is highly encouraged. Here are the defaults I suggest to get started with JavaScript indentation.
+Spacing must be consistent across every file in the application. To this end, using something like [`.editorconfig`][5] configuration files is highly encouraged. Here are the defaults I suggest to get started with JavaScript indentation.
 
 ```ini
 # editorconfig.org
@@ -60,17 +60,17 @@ Where possible, improve readability by keeping lines below the 80-character mark
 
 ## Semicolons`;`
 
-Automatic Semicolon Insertion _(ASI)_ is not a feature. [Don't rely on it][17]. It's [super complicated][18] and there's no practical reason to burden all of the developers in a team for not possessing **the frivolous knowledge of how ASI works**. Avoid headaches, avoid ASI.
+Automatic Semicolon Insertion _(ASI)_ is not a feature. [Don't rely on it][6]. It's [super complicated][7] and there's no practical reason to burden all of the developers in a team for not possessing **the frivolous knowledge of how ASI works**. Avoid headaches, avoid ASI.
 
 > **Always add semicolons where needed**
 
 ## Style Checking
 
-**Don't**. Seriously, [this is super painful][11] for everyone involved, and no observable gain is attained from enforcing such harsh policies.
+**Don't**. Seriously, [this is super painful][8] for everyone involved, and no observable gain is attained from enforcing such harsh policies.
 
 ## Linting
 
-On the other hard, linting is sometimes necessary. Again, don't use a linter that's super opinionated about how the code should be styled, like [`jslint`][12] is. Instead use something more lenient, like [`jshint`][13] or [`eslint`][14].
+On the other hard, linting is sometimes necessary. Again, don't use a linter that's super opinionated about how the code should be styled, like [`jslint`][9] is. Instead use something more lenient, like [`jshint`][10] or [`eslint`][11].
 
 A few tips when using JSHint.
 
@@ -119,7 +119,7 @@ var message = 'oh hai ' + name + "!";
 var message = 'oh hai ' + name + '!';
 ```
 
-Usually you'll be a happier JavaScript developer if you hack together a parameter-replacing method like [`util.format` in Node][15]. That way it'll be far easier to format your strings, and the code looks a lot cleaner too.
+Usually you'll be a happier JavaScript developer if you hack together a parameter-replacing method like [`util.format` in Node][12]. That way it'll be far easier to format your strings, and the code looks a lot cleaner too.
 
 ##### Better
 
@@ -151,7 +151,7 @@ var html = [
 ].join('');
 ```
 
-With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][24] prefer to do.
+With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][13] prefer to do.
 
 ## Variable Declaration
 
@@ -213,7 +213,7 @@ var i, j;
 
 ## Conditionals
 
-**Brackets are enforced**. This, together with a reasonable spacing strategy will help you avoid mistakes such as [Apple's SSL/TLS bug][5].
+**Brackets are enforced**. This, together with a reasonable spacing strategy will help you avoid mistakes such as [Apple's SSL/TLS bug][14].
 
 ##### Bad
 
@@ -227,7 +227,7 @@ if (err) throw err;
 if (err) { throw err; }
 ```
 
-Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][26] into the same value type.
+Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][15] into the same value type.
 
 ##### Bad
 
@@ -255,7 +255,7 @@ isEmptyString(0);
 
 Ternary operators are fine for clear-cut conditionals, but unacceptable for confusing choices. As a rule, if you can't eye-parse it as fast as your brain can interpret the text that declares the ternary operator, chances are it's probably too complicated for its own good.
 
-jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][25].
+jQuery is a prime example of a codebase that's [**filled with nasty ternary operators**][16].
 
 ##### Bad
 
@@ -277,7 +277,7 @@ In cases that may prove confusing just use `if` and `else` statements instead.
 
 ## Functions
 
-When declaring a function, always use the [function declaration form][8] instead of [function expressions][7]. Because [hoisting][9].
+When declaring a function, always use the [function declaration form][17] instead of [function expressions][18]. Because [hoisting][19].
 
 ##### Bad
 
@@ -295,7 +295,7 @@ function sum (x, y) {
 }
 ```
 
-That being said, there's nothing wrong with function expressions that are just [currying another function][10].
+That being said, there's nothing wrong with function expressions that are just [currying another function][20].
 
 ##### Good
 
@@ -303,14 +303,14 @@ That being said, there's nothing wrong with function expressions that are just [
 var plusThree = sum.bind(null, 3);
 ```
 
-Keep in mind that [function declarations will be hoisted][9] to the top of the scope so it doesn't matter the order they are declared in. That being said, you should always keep functions at the top level in a scope, and avoid placing them inside conditional statements.
+Keep in mind that [function declarations will be hoisted][21] to the top of the scope so it doesn't matter the order they are declared in. That being said, you should always keep functions at the top level in a scope, and avoid placing them inside conditional statements.
 
 ##### Bad
 
 ```js
 if (Math.random() > 0.5) {
   sum(1, 3);
-  
+
   function sum (x, y) {
     return x + y;
   }
@@ -364,7 +364,7 @@ var divs = document.querySelectorAll('div');
 });
 ```
 
-However, be aware that there is a [substantial peformance hit][16-1] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
+However, be aware that there is a [substantial peformance hit][22] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
 
 #### Bad
 ```js
@@ -520,7 +520,7 @@ if (!condition) {
 
 ## Prototypes
 
-Hacking native prototypes should be avoided at all costs, use a method instead. If you must extend the functionality in a native type, try using something like [poser][16] instead.
+Hacking native prototypes should be avoided at all costs, use a method instead. If you must extend the functionality in a native type, try using something like [poser][23] instead.
 
 ##### Bad
 
@@ -554,17 +554,17 @@ Instantiate using the egyptian notation `{}`. Use factories instead of construct
 function util (options) {
   // private methods and state go here
   var foo;
-  
+
   function add () {
     return foo++;
   }
-  
+
   function reset () { // note that this method isn't publicly exposed
     foo = options.start || 0;
   }
-  
+
   reset();
-  
+
   return {
     // public interface methods go here
     uuid: add
@@ -576,7 +576,7 @@ function util (options) {
 
 Instantiate using the square bracketed notation `[]`. If you have to declare a fixed-dimension array for performance reasons then it's fine to use the `new Array(length)` notation instead.
 
-It's about time you master array manipulation! [Learn about the basics][19]. It's way easier than you might think.
+It's about time you master array manipulation! [Learn about the basics][24]. It's way easier than you might think.
 
 - [`.forEach`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 - [`.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
@@ -620,7 +620,7 @@ if (numeric.test(text)) {
 }
 ```
 
-Also [learn how to write regular expressions][20], and what they actually do. Then you can also [visualize them online][21].
+Also [learn how to write regular expressions][25], and what they actually do. Then you can also [visualize them online][26].
 
 ## `console` statements
 
@@ -686,13 +686,13 @@ ruleOfThree(4, 2, 6);
 
 ## Polyfills
 
-Where possible use the native browser implementation and include [a polyfill that provides that behavior][22] for unsupported browsers. This makes the code easier to work with and less involved in hackery to make things just work.
+Where possible use the native browser implementation and include [a polyfill that provides that behavior][27] for unsupported browsers. This makes the code easier to work with and less involved in hackery to make things just work.
 
-If you can't patch a piece of functionality with a polyfill, then [wrap all uses of the patching code][23] in a globally available method that is accessible from everywhere in the application.
+If you can't patch a piece of functionality with a polyfill, then [wrap all uses of the patching code][28] in a globally available method that is accessible from everywhere in the application.
 
 ## Everyday Tricks
 
-Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
+Use `||` to define a default value. If the left-hand value is [falsy][29] then the right-hand value will be used.
 
 ```js
 function a (value) {
@@ -701,7 +701,7 @@ function a (value) {
 }
 ```
 
-Use `.bind` to [partially-apply][10] functions.
+Use `.bind` to [partially-apply][30] functions.
 
 ```js
 function sum (a, b) {
@@ -720,7 +720,7 @@ Use `Array.prototype.slice.call` to cast array-like objects to true arrays.
 var args = Array.prototype.slice.call(arguments);
 ```
 
-Use [event emitters][28] on all the things!
+Use [event emitters][31] on all the things!
 
 ```js
 var emitter = contra.emitter();
@@ -753,32 +753,35 @@ MIT
 
 # }
 
-[1]: http://wiki.commonjs.org/wiki/CommonJS
-[2]: http://requirejs.org/docs/whyamd.html
-[3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
-[4]: https://github.com/sindresorhus/editorconfig-sublime
-[5]: https://www.imperialviolet.org/2014/02/22/applebug.html
-[6]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
-[7]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
-[8]: http://stackoverflow.com/q/336859/389745
-[9]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
-[10]: http://ejohn.org/blog/partial-functions-in-javascript/
-[11]: https://github.com/mdevils/node-jscs
-[12]: http://www.jslint.com/
-[13]: https://github.com/jshint/jshint/
-[14]: https://github.com/eslint/eslint
-[15]: http://nodejs.org/api/util.html#util_util_format_format
-[16]: https://github.com/bevacqua/poser
-[16-1]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-[17]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
-[18]: http://www.2ality.com/2011/05/semicolon-insertion.html
-[19]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
-[20]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
-[21]: http://www.regexper.com/#%2F%5Cd%2B%2F
-[22]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
-[23]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
-[24]: https://github.com/visionmedia/jade
-[25]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
-[26]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
-[27]: http://james.padolsey.com/javascript/truthy-falsey/
-[28]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
+
+  [1]: http://wiki.commonjs.org/wiki/CommonJS
+  [2]: http://requirejs.org/docs/whyamd.html
+  [3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
+  [4]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
+  [5]: https://github.com/sindresorhus/editorconfig-sublime
+  [6]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
+  [7]: http://www.2ality.com/2011/05/semicolon-insertion.html
+  [8]: https://github.com/mdevils/node-jscs
+  [9]: http://www.jslint.com/
+  [10]: https://github.com/jshint/jshint/
+  [11]: https://github.com/eslint/eslint
+  [12]: http://nodejs.org/api/util.html#util_util_format_format
+  [13]: https://github.com/visionmedia/jade
+  [14]: https://www.imperialviolet.org/2014/02/22/applebug.html
+  [15]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+  [16]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
+  [17]: http://stackoverflow.com/q/336859/389745
+  [18]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
+  [19]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
+  [20]: http://ejohn.org/blog/partial-functions-in-javascript/
+  [21]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
+  [22]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
+  [23]: https://github.com/bevacqua/poser
+  [24]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
+  [25]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
+  [26]: http://www.regexper.com/#%2F%5Cd%2B%2F
+  [27]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
+  [28]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
+  [29]: http://james.padolsey.com/javascript/truthy-falsey/
+  [30]: http://ejohn.org/blog/partial-functions-in-javascript/
+  [31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
