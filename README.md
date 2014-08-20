@@ -227,7 +227,7 @@ if (err) throw err;
 if (err) { throw err; }
 ```
 
-Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][26] into the same value type.
+Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][27] into the same value type.
 
 ##### Bad
 
@@ -692,7 +692,7 @@ If you can't patch a piece of functionality with a polyfill, then [wrap all uses
 
 ## Everyday Tricks
 
-Use `||` to define a default value. If the left-hand value is [falsy][27] then the right-hand value will be used.
+Use `||` to define a default value. If the left-hand value is [falsy][28] then the right-hand value will be used.
 
 ```js
 function a (value) {
@@ -720,7 +720,7 @@ Use `Array.prototype.slice.call` to cast array-like objects to true arrays.
 var args = Array.prototype.slice.call(arguments);
 ```
 
-Use [event emitters][28] on all the things!
+Use [event emitters][29] on all the things!
 
 ```js
 var emitter = contra.emitter();
