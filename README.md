@@ -151,7 +151,7 @@ var html = [
 ].join('');
 ```
 
-With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][24] prefer to do.
+With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][25] prefer to do.
 
 ## Variable Declaration
 
