@@ -277,7 +277,7 @@ In cases that may prove confusing just use `if` and `else` statements instead.
 
 ## Functions
 
-When declaring a function, always use the [function declaration form][8] instead of [function expressions][7].
+When declaring a function, always use the [function declaration form][8] instead of [function expressions][7]. Because [hoisting][9].
 
 ##### Bad
 
