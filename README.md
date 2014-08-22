@@ -12,7 +12,7 @@ Module systems also provide us with dependency injection patterns, which are cru
 
 ## Strict Mode
 
-**Always** put [`'use strict';`][4] at the top of your modules. Strict mode allows you to catch non-sensical behavior, discourages poor practices, and _is faster_ because it allows compilers to make certain assumptions about your code.
+**Always** put [`'use strict';`][4] at the top of your modules. Strict mode allows you to catch nonsensical behavior, discourages poor practices, and _is faster_ because it allows compilers to make certain assumptions about your code.
 
 ## Spacing
 
