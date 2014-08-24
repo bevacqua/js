@@ -758,7 +758,7 @@ MIT
   [2]: http://requirejs.org/docs/whyamd.html
   [3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
   [4]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
-  [5]: https://github.com/sindresorhus/editorconfig-sublime
+  [5]: http://editorconfig.org
   [6]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
   [7]: http://www.2ality.com/2011/05/semicolon-insertion.html
   [8]: https://github.com/mdevils/node-jscs
