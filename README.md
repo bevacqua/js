@@ -70,7 +70,7 @@ Automatic Semicolon Insertion _(ASI)_ is not a feature. [Don't rely on it][6]. I
 
 ## Linting
 
-On the other hard, linting is sometimes necessary. Again, don't use a linter that's super opinionated about how the code should be styled, like [`jslint`][9] is. Instead use something more lenient, like [`jshint`][10] or [`eslint`][11].
+On the other hand, linting is sometimes necessary. Again, don't use a linter that's super opinionated about how the code should be styled, like [`jslint`][9] is. Instead use something more lenient, like [`jshint`][10] or [`eslint`][11].
 
 A few tips when using JSHint.
 
