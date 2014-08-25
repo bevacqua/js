@@ -364,7 +364,7 @@ var divs = document.querySelectorAll('div');
 });
 ```
 
-However, be aware that there is a [substantial peformance hit][22] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
+However, be aware that there is a [substantial performance hit][22] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
 
 #### Bad
 ```js
@@ -624,7 +624,7 @@ Also [learn how to write regular expressions][25], and what they actually do. Th
 
 ## `console` statements
 
-Preferrably bake `console` statements into a service that can easily be disabled in production. Alternatively, don't ship any `console.log` printing statements to production distributions.
+Preferably bake `console` statements into a service that can easily be disabled in production. Alternatively, don't ship any `console.log` printing statements to production distributions.
 
 ## Comments
 
@@ -662,7 +662,7 @@ Commenting out entire blocks of code _should be avoided entirely_, that's why yo
 
 ## Variable Naming
 
-Variables must have meaningful names so that you don't have to resort to commenting what a piece of functionality does. Instead, try to be expressive while succint, and use meaningful variable names.
+Variables must have meaningful names so that you don't have to resort to commenting what a piece of functionality does. Instead, try to be expressive while succinct, and use meaningful variable names.
 
 ##### Bad
 
