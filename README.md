@@ -4,7 +4,7 @@
 
 This style guide aims to provide the ground rules for an application's JavaScript code, such that it's highly readable and consistent across different developers on a team. The focus is put on quality and coherence across the different pieces of your application.
 
-Use together with [bevacqua/css][32] for great good!
+> Use together with [bevacqua/css][32] for great good!
 
 ## Modules
 
