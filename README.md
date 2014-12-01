@@ -10,6 +10,33 @@ These suggestions aren't set in stone, they aim to provide a baseline you can us
 
 > Use together with [bevacqua/css][32] for great good!
 
+Feel free to fork this style guide, or better yet, send [Pull Requests][33] this way!
+
+## Table of Contents
+
+1. [Modules](#modules)
+2. [Strict Mode](#strict-mode)
+3. [Spacing](#spacing)
+4. [Semicolons](#semicolons)
+5. [Style Checking](#style-checking)
+6. [Linting](#linting)
+7. [Strings](#strings)
+8. [Variable Declaration](#variable-declaration)
+9. [Conditionals](#conditionals)
+10. [Equality](#equality)
+11. [Ternary Operators](#ternary-operators)
+12. [Functions](#functions)
+13. [Prototypes](#prototypes)
+14. [Object Literals](#object-literals)
+15. [Array Literals](#array-literals)
+16. [Regular Expressions](#regular-expressions)
+17. [`console` Statements](#console-statements)
+18. [Comments](#comments)
+19. [Variable Naming](#variable-naming)
+20. [Polyfills](#polyfills)
+21. [Everyday Tricks](#everyday-tricks)
+22. [License](#license)
+
 ## Modules
 
 This style guide assumes you're using a module system such as [CommonJS][1], [AMD][2], [ES6 Modules][3], or any other kind of module system. Modules systems provide individual scoping, avoid leaks to the `global` object, and improve code base organization by **automating dependency graph generation**, instead of having to resort to manually creating tens of `<script>` tags.
@@ -804,3 +831,4 @@ MIT
   [30]: http://ejohn.org/blog/partial-functions-in-javascript/
   [31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
   [32]: https://github.com/bevacqua/css
+  [33]: https://github.com/bevacqua/js/issues
