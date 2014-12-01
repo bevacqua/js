@@ -737,7 +737,7 @@ If you can't patch a piece of functionality with a polyfill, then [wrap all uses
 
 ## Everyday Tricks
 
-Use `||` to define a default value. If the left-hand value is [falsy][29] then the right-hand value will be used.
+Use `||` to define a default value. If the left-hand value is [falsy][29] then the right-hand value will be used. Be advised, that because of loose type comparison, inputs like `false`, `0`, `null` or `''` will be evaluated as falsy, and converted to default value. For strict type checking use `if (value === void 0) { value = defaultValue }`.
 
 ```js
 function a (value) {
