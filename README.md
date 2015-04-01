@@ -93,9 +93,9 @@ Where possible, improve readability by keeping lines below the 80-character mark
 
 ## Semicolons`;`
 
-Automatic Semicolon Insertion _(ASI)_ is not a feature. [Don't rely on it][6]. It's [super complicated][7] and there's no practical reason to burden all of the developers in a team for not possessing **the frivolous knowledge of how ASI works**. Avoid headaches, avoid ASI.
+The majority of JavaScript programmers [prefer using semicolons][6]. This choice is done to avoid potential issues with Automatic Semicolon Insertion _(ASI)_. If you decide against using semicolons, [make sure you understand the ASI rules][7].
 
-> **Always add semicolons where needed**
+Regardless of your choice, a linter should be used to catch unnecessary or unintentional semicolons.
 
 ## Style Checking
 
@@ -804,8 +804,8 @@ MIT
   [3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
   [4]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
   [5]: http://editorconfig.org
-  [6]: http://benalman.com/news/2013/01/advice-javascript-semicolon-haters/
-  [7]: http://www.2ality.com/2011/05/semicolon-insertion.html
+  [6]: http://dailyjs.com/2012/12/24/javascript-survey-results/
+  [7]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
   [8]: https://github.com/mdevils/node-jscs
   [9]: http://www.jslint.com/
   [10]: https://github.com/jshint/jshint/
