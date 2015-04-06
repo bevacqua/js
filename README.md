@@ -39,7 +39,7 @@ Feel free to fork this style guide, or better yet, send [Pull Requests][33] this
 
 ## Modules
 
-This style guide assumes you're using a module system such as [CommonJS][1], [AMD][2], [ES6 Modules][3], or any other kind of module system. Modules systems provide individual scoping, avoid leaks to the `global` object, and improve code base organization by **automating dependency graph generation**, instead of having to resort to manually creating tens of `<script>` tags.
+This style guide assumes you're using a module system such as [CommonJS][1], [AMD][2], [ES6 Modules][3], or any other kind of module system. Modules systems provide individual scoping, avoid leaks to the `global` object, and improve code base organization by **automating dependency graph generation**, instead of having to resort to manually creating multiple `<script>` tags.
 
 Module systems also provide us with dependency injection patterns, which are crucial when it comes to testing individual components in isolation.
 
