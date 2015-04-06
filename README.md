@@ -272,7 +272,7 @@ if (err) {
 
 ## Equality
 
-Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators", while [their counterparts will attempt to cast the operands][15] into the same value type.
+Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operators are called the "strict equality operators," while [their counterparts will attempt to cast the operands][15] into the same value type.
 
 ##### Bad
 
