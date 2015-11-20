@@ -804,14 +804,14 @@ MIT
   [3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
   [4]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
   [5]: http://editorconfig.org
-  [6]: http://dailyjs.com/2012/12/24/javascript-survey-results/
+  [6]: http://dailyjs.com/2012/12/24/817-javascript-survey-results
   [7]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
-  [8]: https://github.com/mdevils/node-jscs
+  [8]: https://github.com/jscs-dev/node-jscs
   [9]: http://www.jslint.com/
   [10]: https://github.com/jshint/jshint/
   [11]: https://github.com/eslint/eslint
   [12]: http://nodejs.org/api/util.html#util_util_format_format
-  [13]: https://github.com/visionmedia/jade
+  [13]: https://github.com/jadejs/jade
   [14]: https://www.imperialviolet.org/2014/02/22/applebug.html
   [15]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
   [16]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
@@ -822,11 +822,11 @@ MIT
   [21]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
   [22]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
   [23]: https://github.com/bevacqua/poser
-  [24]: http://blog.ponyfoo.com/2013/11/19/fun-with-native-arrays
-  [25]: http://blog.ponyfoo.com/2013/05/27/learn-regular-expressions
+  [24]: https://ponyfoo.com/articles/fun-with-native-arrays
+  [25]: https://ponyfoo.com/articles/learn-regular-expressions
   [26]: http://www.regexper.com/#%2F%5Cd%2B%2F
-  [27]: http://remysharp.com/2010/10/08/what-is-a-polyfill/
-  [28]: http://blog.ponyfoo.com/2014/08/05/building-high-quality-front-end-modules
+  [27]: https://remysharp.com/2010/10/08/what-is-a-polyfill
+  [28]: https://ponyfoo.com/articles/building-high-quality-front-end-modules
   [29]: http://james.padolsey.com/javascript/truthy-falsey/
   [30]: http://ejohn.org/blog/partial-functions-in-javascript/
   [31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
