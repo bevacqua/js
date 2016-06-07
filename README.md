@@ -665,7 +665,7 @@ if (numeric.test(text)) {
 }
 ```
 
-Also [learn how to write regular expressions][25], and what they actually do. Then you can also [visualize them ][26] and [test them online](http://regexr.com/).
+Also [learn how to write regular expressions][25], and what they actually do. Then you can also [visualize them ][26] and [test them online][34].
 
 ## `console` statements
 
@@ -832,3 +832,4 @@ MIT
   [31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
   [32]: https://github.com/bevacqua/css
   [33]: https://github.com/bevacqua/js/issues
+  [34]: http://regexr.com/
