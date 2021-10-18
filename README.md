@@ -8,7 +8,7 @@ This style guide aims to provide the ground rules for an application's JavaScrip
 
 These suggestions aren't set in stone, they aim to provide a baseline you can use in order to write more consistent codebases. To maximize effectiveness, share the styleguide among your co-workers and attempt to enforce it. Don't become obsessed about code style, as it'd be fruitless and counterproductive. Try and find the sweet spot that makes everyone in the team comfortable developing for your codebase, while not feeling frustrated that their code always fails automated style checking because they added a single space where they weren't supposed to. It's a thin line, but since it's a very personal line I'll leave it to you to do the drawing.
 
-> Use together with [bevacqua/css][32] for great good!
+> Use together with [bevacqua/css][32] for very good!
 
 Feel free to fork this style guide, or better yet, send [Pull Requests][33] this way!
 
@@ -143,13 +143,13 @@ Strings should always be quoted using the same quotation mark. Use `'` or `"` co
 ##### Bad
 
 ```js
-var message = 'oh hai ' + name + "!";
+var message = "oh hai " + name + "!";
 ```
 
 ##### Good
 
 ```js
-var message = 'oh hai ' + name + '!';
+var message = "oh hai " + name + "!";
 ```
 
 Usually you'll be a happier JavaScript developer if you hack together a parameter-replacing method like [`util.format` in Node][12]. That way it'll be far easier to format your strings, and the code looks a lot cleaner too.
@@ -157,18 +157,18 @@ Usually you'll be a happier JavaScript developer if you hack together a paramete
 ##### Better
 
 ```js
-var message = util.format('oh hai %s!', name);
+var message = util.format("oh hai %s!", name);
 ```
 
 You could implement something similar using the piece of code below.
 
 ```js
-function format () {
+function format() {
   var args = [].slice.call(arguments);
   var initial = args.shift();
 
-  function replacer (text, replacement) {
-    return text.replace('%s', replacement);
+  function replacer(text, replacement) {
+    return text.replace("%s", replacement);
   }
   return args.reduce(replacer, initial);
 }
@@ -178,10 +178,10 @@ To declare multi-line strings, particularly when talking about HTML snippets, it
 
 ```js
 var html = [
-  '<div>',
-    format('<span class="monster">%s</span>', name),
-  '</div>'
-].join('');
+  "<div>",
+  format('<span class="monster">%s</span>', name),
+  "</div>",
+].join("");
 ```
 
 With the array builder style, you can also push parts of the snippet and then join everything together at the end. This is in fact what some [string templating engines like Jade][13] prefer to do.
@@ -194,13 +194,12 @@ Always declare variables in **a consistent manner**, and at the top of their sco
 
 ```js
 var foo = 1,
-    bar = 2;
+  bar = 2;
 
 var baz;
 var pony;
 
-var a
-  , b;
+var a, b;
 ```
 
 ```js
@@ -210,6 +209,7 @@ if (foo > 1) {
   var bar = 2;
 }
 ```
+
 ##### Good
 
 <sub>Just because they're consistent with each other, not because of the style</sub>
@@ -239,7 +239,7 @@ Variable declarations that aren't immediately assigned a value are acceptable to
 ##### Acceptable
 
 ```js
-var a = 'a';
+var a = "a";
 var b = 2;
 var i, j;
 ```
@@ -257,7 +257,9 @@ if (err) throw err;
 ##### Good
 
 ```js
-if (err) { throw err; }
+if (err) {
+  throw err;
+}
 ```
 
 It's even better if you avoid keeping conditionals on a single line, for the sake of text comprehension.
@@ -277,8 +279,8 @@ Avoid using `==` and `!=` operators, always favor `===` and `!==`. These operato
 ##### Bad
 
 ```js
-function isEmptyString (text) {
-  return text == '';
+function isEmptyString(text) {
+  return text == "";
 }
 
 isEmptyString(0);
@@ -288,8 +290,8 @@ isEmptyString(0);
 ##### Good
 
 ```js
-function isEmptyString (text) {
-  return text === '';
+function isEmptyString(text) {
+  return text === "";
 }
 
 isEmptyString(0);
@@ -305,7 +307,7 @@ jQuery is a prime example of a codebase that's [**filled with nasty ternary oper
 ##### Bad
 
 ```js
-function calculate (a, b) {
+function calculate(a, b) {
   return a && b ? 11 : a ? 10 : b ? 1 : 0;
 }
 ```
@@ -313,8 +315,8 @@ function calculate (a, b) {
 ##### Good
 
 ```js
-function getName (mobile) {
-  return mobile ? mobile.name : 'Generic Player';
+function getName(mobile) {
+  return mobile ? mobile.name : "Generic Player";
 }
 ```
 
@@ -335,7 +337,7 @@ var sum = function (x, y) {
 ##### Good
 
 ```js
-function sum (x, y) {
+function sum(x, y) {
   return x + y;
 }
 ```
@@ -356,11 +358,10 @@ Keep in mind that [function declarations will be hoisted][21] to the top of the 
 if (Math.random() > 0.5) {
   sum(1, 3);
 
-  function sum (x, y) {
+  function sum(x, y) {
     return x + y;
   }
 }
-
 ```
 
 ##### Good
@@ -370,13 +371,13 @@ if (Math.random() > 0.5) {
   sum(1, 3);
 }
 
-function sum (x, y) {
+function sum(x, y) {
   return x + y;
 }
 ```
 
 ```js
-function sum (x, y) {
+function sum(x, y) {
   return x + y;
 }
 
@@ -392,7 +393,7 @@ Whenever you have to manipulate an array-like object, cast it to an array.
 ##### Bad
 
 ```js
-var divs = document.querySelectorAll('div');
+var divs = document.querySelectorAll("div");
 
 for (i = 0; i < divs.length; i++) {
   console.log(divs[i].innerHTML);
@@ -402,7 +403,7 @@ for (i = 0; i < divs.length; i++) {
 ##### Good
 
 ```js
-var divs = document.querySelectorAll('div');
+var divs = document.querySelectorAll("div");
 
 [].slice.call(divs).forEach(function (div) {
   console.log(div.innerHTML);
@@ -412,16 +413,18 @@ var divs = document.querySelectorAll('div');
 However, be aware that there is a [substantial performance hit][22] in V8 environments when using this approach on `arguments`. If performance is a major concern, avoid casting `arguments` with `slice` and instead use a `for` loop.
 
 #### Bad
+
 ```js
 var args = [].slice.call(arguments);
 ```
 
 #### Good
+
 ```js
 var i;
 var args = new Array(arguments.length);
 for (i = 0; i < args.length; i++) {
-    args[i] = arguments[i];
+  args[i] = arguments[i];
 }
 ```
 
@@ -445,11 +448,14 @@ var values = [1, 2, 3];
 var i;
 
 for (i = 0; i < values.length; i++) {
-  setTimeout(function (i) {
-    return function () {
-      console.log(values[i]);
-    };
-  }(i), 1000 * i);
+  setTimeout(
+    (function (i) {
+      return function () {
+        console.log(values[i]);
+      };
+    })(i),
+    1000 * i
+  );
 }
 ```
 
@@ -460,9 +466,13 @@ var values = [1, 2, 3];
 var i;
 
 for (i = 0; i < values.length; i++) {
-  setTimeout(function (i) {
-    console.log(values[i]);
-  }, 1000 * i, i);
+  setTimeout(
+    function (i) {
+      console.log(values[i]);
+    },
+    1000 * i,
+    i
+  );
 }
 ```
 
@@ -474,7 +484,7 @@ for (i = 0; i < values.length; i++) {
   wait(i);
 }
 
-function wait (i) {
+function wait(i) {
   setTimeout(function () {
     console.log(values[i]);
   }, 1000 * i);
@@ -498,10 +508,12 @@ Whenever a method is non-trivial, make the effort to **use a named function decl
 ##### Bad
 
 ```js
-function once (fn) {
+function once(fn) {
   var ran = false;
   return function () {
-    if (ran) { return };
+    if (ran) {
+      return;
+    }
     ran = true;
     fn.apply(this, arguments);
   };
@@ -511,10 +523,12 @@ function once (fn) {
 ##### Good
 
 ```js
-function once (fn) {
+function once(fn) {
   var ran = false;
-  return function run () {
-    if (ran) { return };
+  return function run() {
+    if (ran) {
+      return;
+    }
     ran = true;
     fn.apply(this, arguments);
   };
@@ -529,7 +543,7 @@ Avoid keeping indentation levels from raising more than necessary by using guard
 if (car) {
   if (black) {
     if (turbine) {
-      return 'batman!';
+      return "batman!";
     }
   }
 }
@@ -553,7 +567,7 @@ if (!black) {
 if (!turbine) {
   return;
 }
-return 'batman!';
+return "batman!";
 ```
 
 ```js
@@ -578,7 +592,7 @@ String.prototype.half = function () {
 ##### Good
 
 ```js
-function half (text) {
+function half(text) {
   return text.substr(0, text.length / 2);
 }
 ```
@@ -596,15 +610,16 @@ function half (text) {
 Instantiate using the egyptian notation `{}`. Use factories instead of constructors, here's a proposed pattern for you to implement objects in general.
 
 ```js
-function util (options) {
+function util(options) {
   // private methods and state go here
   var foo;
 
-  function add () {
+  function add() {
     return foo++;
   }
 
-  function reset () { // note that this method isn't publicly exposed
+  function reset() {
+    // note that this method isn't publicly exposed
     foo = options.start || 0;
   }
 
@@ -612,7 +627,7 @@ function util (options) {
 
   return {
     // public interface methods go here
-    uuid: add
+    uuid: add,
   };
 }
 ```
@@ -652,7 +667,7 @@ Keep regular expressions in variables, don't use them inline. This will vastly i
 
 ```js
 if (/\d+/.test(text)) {
-  console.log('so many numbers!');
+  console.log("so many numbers!");
 }
 ```
 
@@ -661,7 +676,7 @@ if (/\d+/.test(text)) {
 ```js
 var numeric = /\d+/;
 if (numeric.test(text)) {
-  console.log('so many numbers!');
+  console.log("so many numbers!");
 }
 ```
 
@@ -679,19 +694,19 @@ Comments **aren't meant to explain what** the code does. Good **code is supposed
 
 ```js
 // create the centered container
-var p = $('<p/>');
+var p = $("<p/>");
 p.center(div);
-p.text('foo');
+p.text("foo");
 ```
 
 ##### Good
 
 ```js
-var container = $('<p/>');
-var contents = 'foo';
+var container = $("<p/>");
+var contents = "foo";
 container.center(parent);
 container.text(contents);
-megaphone.on('data', function (value) {
+megaphone.on("data", function (value) {
   container.text(value); // the megaphone periodically emits updates for container
 });
 ```
@@ -699,7 +714,7 @@ megaphone.on('data', function (value) {
 ```js
 var numeric = /\d+/; // one or more digits somewhere in the string
 if (numeric.test(text)) {
-  console.log('so many numbers!');
+  console.log("so many numbers!");
 }
 ```
 
@@ -712,8 +727,8 @@ Variables must have meaningful names so that you don't have to resort to comment
 ##### Bad
 
 ```js
-function a (x, y, z) {
-  return z * y / x;
+function a(x, y, z) {
+  return (z * y) / x;
 }
 a(4, 2, 6);
 // <- 3
@@ -722,8 +737,8 @@ a(4, 2, 6);
 ##### Good
 
 ```js
-function ruleOfThree (had, got, have) {
-  return have * got / had;
+function ruleOfThree(had, got, have) {
+  return (have * got) / had;
 }
 ruleOfThree(4, 2, 6);
 // <- 3
@@ -740,7 +755,7 @@ If you can't patch a piece of functionality with a polyfill, then [wrap all uses
 Use `||` to define a default value. If the left-hand value is [falsy][29] then the right-hand value will be used. Be advised, that because of loose type comparison, inputs like `false`, `0`, `null` or `''` will be evaluated as falsy, and converted to default value. For strict type checking use `if (value === void 0) { value = defaultValue }`.
 
 ```js
-function a (value) {
+function a(value) {
   var defaultValue = 33;
   var used = value || defaultValue;
 }
@@ -749,7 +764,7 @@ function a (value) {
 Use `.bind` to [partially-apply][30] functions.
 
 ```js
-function sum (a, b) {
+function sum(a, b) {
   return a + b;
 }
 
@@ -770,16 +785,16 @@ Use [event emitters][31] on all the things!
 ```js
 var emitter = contra.emitter();
 
-body.addEventListener('click', function () {
-  emitter.emit('click', e.target);
+body.addEventListener("click", function () {
+  emitter.emit("click", e.target);
 });
 
-emitter.on('click', function (elem) {
+emitter.on("click", function (elem) {
   console.log(elem);
 });
 
 // simulate click
-emitter.emit('click', document.body);
+emitter.emit("click", document.body);
 ```
 
 Use `Function()` as a _"no-op"_.
@@ -798,37 +813,36 @@ MIT
 
 # }
 
-
-  [1]: http://wiki.commonjs.org/wiki/CommonJS
-  [2]: http://requirejs.org/docs/whyamd.html
-  [3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
-  [4]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
-  [5]: http://editorconfig.org
-  [6]: http://dailyjs.com/2012/12/24/817-javascript-survey-results
-  [7]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
-  [8]: https://github.com/jscs-dev/node-jscs
-  [9]: http://www.jslint.com/
-  [10]: https://github.com/jshint/jshint/
-  [11]: https://github.com/eslint/eslint
-  [12]: http://nodejs.org/api/util.html#util_util_format_format
-  [13]: https://github.com/jadejs/jade
-  [14]: https://www.imperialviolet.org/2014/02/22/applebug.html
-  [15]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
-  [16]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
-  [17]: http://stackoverflow.com/q/336859/389745
-  [18]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
-  [19]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
-  [20]: http://ejohn.org/blog/partial-functions-in-javascript/
-  [21]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
-  [22]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-  [23]: https://github.com/bevacqua/poser
-  [24]: https://ponyfoo.com/articles/fun-with-native-arrays
-  [25]: https://ponyfoo.com/articles/learn-regular-expressions
-  [26]: http://www.regexper.com/#%2F%5Cd%2B%2F
-  [27]: https://remysharp.com/2010/10/08/what-is-a-polyfill
-  [28]: https://ponyfoo.com/articles/building-high-quality-front-end-modules
-  [29]: http://james.padolsey.com/javascript/truthy-falsey/
-  [30]: http://ejohn.org/blog/partial-functions-in-javascript/
-  [31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
-  [32]: https://github.com/bevacqua/css
-  [33]: https://github.com/bevacqua/js/issues
+[1]: http://wiki.commonjs.org/wiki/CommonJS
+[2]: http://requirejs.org/docs/whyamd.html
+[3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
+[4]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
+[5]: http://editorconfig.org
+[6]: http://dailyjs.com/2012/12/24/817-javascript-survey-results
+[7]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
+[8]: https://github.com/jscs-dev/node-jscs
+[9]: http://www.jslint.com/
+[10]: https://github.com/jshint/jshint/
+[11]: https://github.com/eslint/eslint
+[12]: http://nodejs.org/api/util.html#util_util_format_format
+[13]: https://github.com/jadejs/jade
+[14]: https://www.imperialviolet.org/2014/02/22/applebug.html
+[15]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+[16]: https://github.com/jquery/jquery/blob/c869a1ef8a031342e817a2c063179a787ff57239/src/ajax.js#L117
+[17]: http://stackoverflow.com/q/336859/389745
+[18]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function
+[19]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
+[20]: http://ejohn.org/blog/partial-functions-in-javascript/
+[21]: https://github.com/buildfirst/buildfirst/tree/master/ch05/04_hoisting
+[22]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
+[23]: https://github.com/bevacqua/poser
+[24]: https://ponyfoo.com/articles/fun-with-native-arrays
+[25]: https://ponyfoo.com/articles/learn-regular-expressions
+[26]: http://www.regexper.com/#%2F%5Cd%2B%2F
+[27]: https://remysharp.com/2010/10/08/what-is-a-polyfill
+[28]: https://ponyfoo.com/articles/building-high-quality-front-end-modules
+[29]: http://james.padolsey.com/javascript/truthy-falsey/
+[30]: http://ejohn.org/blog/partial-functions-in-javascript/
+[31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
+[32]: https://github.com/bevacqua/css
+[33]: https://github.com/bevacqua/js/issues
