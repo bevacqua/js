@@ -8,7 +8,7 @@ This style guide aims to provide the ground rules for an application's JavaScrip
 
 These suggestions aren't set in stone, they aim to provide a baseline you can use in order to write more consistent codebases. To maximize effectiveness, share the styleguide among your co-workers and attempt to enforce it. Don't become obsessed about code style, as it'd be fruitless and counterproductive. Try and find the sweet spot that makes everyone in the team comfortable developing for your codebase, while not feeling frustrated that their code always fails automated style checking because they added a single space where they weren't supposed to. It's a thin line, but since it's a very personal line I'll leave it to you to do the drawing.
 
-> Use together with [bevacqua/css][32] for very good!
+> Use together with [bevacqua/css][32] for very nice!
 
 Feel free to fork this style guide, or better yet, send [Pull Requests][33] this way!
 
