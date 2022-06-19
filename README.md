@@ -4,18 +4,6 @@
 
 This style guide aims to provide the ground rules for an application's JavaScript code, such that it's highly readable and consistent across different developers on a team. The focus is put on quality and coherence across the different pieces of your application.
 
-## Goal
-
-These suggestions aren't set in stone, they aim to provide a baseline you can use in order to write more consistent codebases. To maximize effectiveness, share the styleguide among your co-workers and attempt to enforce it. Don't become obsessed about code style, as it'd be fruitless and counterproductive. Try and find the sweet spot that makes everyone in the team comfortable developing for your codebase, while not feeling frustrated that their code always fails automated style checking because they added a single space where they weren't supposed to. It's a thin line, but since it's a very personal line I'll leave it to you to do the drawing.
-
-> Use together with [bevacqua/css][32] for great good!
-
-Feel free to fork this style guide, or better yet, send [Pull Requests][33] this way!
-
-## Table of Contents
-
-1. [Modules](#modules)
-2. [Strict Mode](#strict-mode)
 3. [Spacing](#spacing)
 4. [Semicolons](#semicolons)
 5. [Style Checking](#style-checking)
