@@ -831,4 +831,3 @@ MIT
   [30]: http://ejohn.org/blog/partial-functions-in-javascript/
   [31]: https://github.com/bevacqua/contra#%CE%BBemitterthing-options
   [32]: https://github.com/bevacqua/css
-  [33]: https://github.com/bevacqua/js/issues
