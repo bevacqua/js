@@ -798,7 +798,7 @@ MIT
 
 # }
 
-
+this is new note
   [1]: http://wiki.commonjs.org/wiki/CommonJS
   [2]: http://requirejs.org/docs/whyamd.html
   [3]: http://eviltrout.com/2014/05/03/getting-started-with-es6.html
