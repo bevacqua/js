@@ -1,5 +1,5 @@
 # function qualityGuide () {
-
+<!-- 注释 -->
 > A **quality conscious** and _organic_ JavaScript quality guide
 
 This style guide aims to provide the ground rules for an application's JavaScript code, such that it's highly readable and consistent across different developers on a team. The focus is put on quality and coherence across the different pieces of your application.
